@@ -75,7 +75,7 @@ void solve(){
         vec.push_back(a);
     }
     
-    int count=0;
+    int count=0,j=1;
 
     while(1){
         bool sortit = false;
@@ -86,21 +86,28 @@ void solve(){
         }
 
         if(sortit){
-            rep(i,0,n-1,1){
-                if(vec[i]>vec[i+1]){
-                    swap(vec[i],vec[i+1]);
-                    i++;
+            if(j%2){
+                rep(i,0,n-1,2){
+                    if(vec[i]>vec[i+1]){
+                        swap(vec[i],vec[i+1]);
+                    }
                 }
+            }else{
+                rep(i,1,n-1,2){
+                    if(vec[i]>vec[i+1]){
+                        swap(vec[i],vec[i+1]);
+                    }
+                }
+            
             }
+            
             count++;
+
         }else{
             break;
         }
-
+        j++;
     }
-    // if(count!=0){
-    //     count++;
-    // }
     cout<<count<<endl;
 
 }
